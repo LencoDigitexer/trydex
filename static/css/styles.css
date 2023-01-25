@@ -211,7 +211,7 @@ a:hover,
     max-width: 550px;
     word-wrap: break-word;
     margin-bottom: 35px;
-    background: #18181a;
+    background: var(--result-bg);
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 15px;
