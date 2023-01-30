@@ -209,7 +209,12 @@
     function print_elapsed_time($start_time)
         {
             $end_time = number_format(microtime(true) - $start_time, 2, '.', '');
-            echo "<p id=\"time\">Получил результаты за $end_time секунды</p>";
+            isset($_COOKIE["google_language"]) ? $engine = $_COOKIE["engines"] : $engine = "yandex";
+            if($engine=="yandex"){
+                echo "<p id=\"time\">Получил результаты за $end_time секунды от Яндекс</p> ";
+            } else {
+                echo "<p id=\"time\">Получил результаты за $end_time секунды от Google</p> ";
+            }
         }
 
     function print_next_page_button($text, $page, $query, $type)

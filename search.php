@@ -58,7 +58,12 @@
                     $last_word_query = end($query_parts);
                     if (substr($query, 0, 1) == "!" || substr($last_word_query, 0, 1) == "!")
                         check_ddg_bang($query);
-                    require "engines/google/text.php";
+                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "yandex";
+                    if($cookie_engine == "yandex"){
+                        require "engines/yandex/text.php";
+                    } else {
+                        require "engines/google/text.php";
+                    }
                     $results = get_text_results($query, $page);
                     print_elapsed_time($start_time);
                     print_text_results($results);
@@ -103,7 +108,12 @@
                     break;
 
                 default:
-                    require "engines/google/text.php";
+                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "yandex";
+                    if($cookie_engine == "yandex"){
+                        require "engines/yandex/text.php";
+                    } else {
+                        require "engines/google/text.php";
+                    }
                     $results = get_text_results($query_encoded, $page);
                     print_text_results($results);
                     print_elapsed_time($start_time);

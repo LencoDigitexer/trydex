@@ -66,6 +66,22 @@ require "misc/header.php";
                     ?>
                 </select>
             </div>
+            <div>
+                <label for="theme">Поисковик:</label>
+                <select name="engines">
+                    <?php
+                    $engines = "<option value=\"yandex\">Яндекс</option>
+                    <option value=\"google\">Google</option>";
+
+                    if (isset($_COOKIE["engines"])) {
+                        $cookie_engine = $_COOKIE["engines"];
+                        $engines = str_replace($cookie_engine . "\"", $cookie_engine . "\" selected", $engines);
+                    }
+
+                    echo $engines;
+                    ?>
+                </select>
+            </div>
             <?php
             $edit_settings = $config->edit_settings;
             if ($edit_settings == "1") { ?>
