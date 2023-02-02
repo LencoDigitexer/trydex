@@ -42,7 +42,24 @@
             ?>
             <button type="submit" class="hide"></button>
             <input type="hidden" name="p" value="0">
-            
+            <div class="sub-search-button-wrapper">
+                <?php
+                    $categories = array("Поиск", "Форумы", "Видео");
+
+                    foreach ($categories as $category)
+                    {
+                        $category_index = array_search($category, $categories);
+
+                        if (($config->disable_bittorent_search && $category_index == 3) ||
+                            ($config->disable_hidden_service_search && $category_index ==4))
+                        {
+                            continue;
+                        }
+
+                        echo "<a " . (($category_index == $type) ? "class=\"active\"" : "") . "href=\"/search.php?q=" . $query . "&p=0&t=" . $category_index . "\"><img src=\"static/images/" . $category . "_result.png\" alt=\"" . $category . " result\" />" . ucfirst($category)  . "</a>";
+                    }
+                ?>
+            </div>
         <hr>
         </form>
 
@@ -62,7 +79,7 @@
                     if($cookie_engine == "yandex"){
                         require "engines/yandex/text.php";
                     } else {
-                        require "engines/google/text.php";
+                        require "engines/google_mobile/text.php";
                     }
                     $results = get_text_results($query, $page);
                     print_elapsed_time($start_time);
@@ -70,10 +87,10 @@
                     break;
 
                 case 1:
-                    require "engines/qwant/image.php";
-                    $results = get_image_results($query_encoded, $page);
+                    require "engines/crowdview/forums.php";
+                    $results = get_text_results($query_encoded, $page);
                     print_elapsed_time($start_time);
-                    print_image_results($results);
+                    print_text_results($results);
                     break;
 
                 case 2:
@@ -112,7 +129,7 @@
                     if($cookie_engine == "yandex"){
                         require "engines/yandex/text.php";
                     } else {
-                        require "engines/google/text.php";
+                        require "engines/google_mobile/text.php";
                     }
                     $results = get_text_results($query_encoded, $page);
                     print_text_results($results);
