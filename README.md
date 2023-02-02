@@ -7,14 +7,9 @@
 
 ![image](https://user-images.githubusercontent.com/44779327/216434792-cb5bf3c5-5645-4c1f-90ef-bbdca8df001d.png)
 
-
 <p align="center">Самая быстрая и конфиденциальная мета-поисковая система</p>
 
 <br>
-
-### Немного о TrydeX
-
-Trydex использует популярные поисковые системы.
 
 ### Trydex поддерживает поисковые системы
 
@@ -22,7 +17,6 @@ Trydex использует популярные поисковые систем
 |-|-|-|-|-|
 | Yandex | CrowdView | Brave | ❌ | ✅ |
 | Google |  |  |  |  |
-
 
 ### Особенности
 
@@ -95,4 +89,3 @@ sudo systemctl enable --now php-fpm nginx
 ```
 
 Теперь TrydeX должен быть запущен!
-
