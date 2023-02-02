@@ -1,59 +1,95 @@
-<h1 align="center">LibreX</h1>
+<h1 align="center">TrydeX</h1>
 
 <p float="left">
   <img src="https://user-images.githubusercontent.com/49120638/207549667-c731a4f2-b9b0-4385-96be-9c17a8bb2984.png" width="400">
   <img src="https://user-images.githubusercontent.com/49120638/207550159-4fa639a5-24e6-42e0-9e58-f04e5d18e391.png" width="400">
 </p>
 
-<p align="center">Framework and javascript free privacy respecting meta search engine</p>
+<p align="center">Самая быстрая и конфиденциальная мета-поисковая система</p>
 
 <br>
 
-### Instances
+### Немного о TrydeX
 
-| Clearnet | TOR | I2P | Country |
-|-|-|-|-|
-| [search.femboy.hu](https://search.femboy.hu/) | [✅](http://search.femboy2vec5mc3rdvecifqrwzpiaeoyfh4zodppxq4pc2tdvzhm4moqd.onion/) | ❌ | 🇭🇺 HU (OFFICIAL INSTANCE) |
-| [lx.vern.cc](https://lx.vern.cc/) | [✅](http://lx.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/) | [✅](http://vernziqfqvweijfaacmwazohgpdo2bt2ib2jlupt2pwwu27bhgxq.b32.i2p/) | 🇺🇸 US |
-| [lx.sesu.cc](https://lx.sesu.cc/) | [✅](http://lx.swxoebbpeqiiixyhbuh3vbw53pdrmtbiaj2sqveol6kkn5rpapfi4aad.onion/) | [✅](http://lqbchqljxiwl3bbjt4vqe76luovk5ly6khqhg7mt5qcqfn6e4sbq.b32.i2p/) |  🇨🇱 CL |
-| [librex.mikata.ru](https://librex.mikata.ru/) | [✅](http://f7ssz7l3biu4fugwctfpcx4txg5yq4gqhrt473ledsuc3ivtd3omniid.onion/) | ❌ | 🇺🇸 US |
-| [librex.terryiscool160.xyz](https://librex.terryiscool160.xyz/) | [✅](http://librex.n53wt4ivvfdfaqkwldgdzfsubszukie2an6auja6x2wp3e3oa7v2gqyd.onion/) | ❌ | 🇬🇧 UK |
-| [search.milivojevic.in.rs](https://search.milivojevic.in.rs/) | [✅](http://librex2xsek6qnh2i4yufuzqjumfdwtw7io7omgmimpzna6llqudqzyd.onion/) | ❌ | 🇳🇱 NL |
-| [search.davidovski.xyz](https://search.davidovski.xyz/) | ❌ | ❌ | 🇬🇧 UK |
-| [search.funami.tech](https://search.funami.tech/) | ❌ | ❌ | 🇰🇷 KR |
-| [search.madreyk.xyz](https://search.madreyk.xyz/) | ❌ | ❌ | 🇩🇪 DE |
-| [search.pabloferreiro.es](https://search.pabloferreiro.es/) | ❌ | ❌ | 🇩🇪 DE |
-| [buscar.weblibre.org](https://buscar.weblibre.org/) | ❌ | ❌ | 🇨🇱 CL |
-| [search.ahwx.org](https://search.ahwx.org/) | ❌ | ❌ | 🇳🇱 NL |
-| [librex.pufe.org](https://librex.pufe.org/) | ❌ | ❌ | :new_zealand: NZ |
-| [librex.ratakor.com](https://librex.ratakor.com/) | ❌ | ❌ | 🇫🇷 FR |
-| [search.tildevarsh.in](https://search.tildevarsh.in/) | ❌ | ❌ | 🇮🇳  IN |
-| [librex.myroware.eu](https://librex.myroware.eu/) | ❌ | ❌ | 🇩🇪 DE |
-| [search.mascotboi.xyz](https://search.mascotboi.xyz/) | ❌ | ❌ | 🇮🇳  IN |
+Trydex использует популярные поисковые системы.
+
+### Trydex поддерживает поисковые системы
+
+| Поиск |  Форумы | Видео | Картинки | API |
+|-|-|-|-|-|
+| Yandex | CrowdView | Brave | ❌ | ✅ |
+| Google |  |  |  |  |
+
+
+### Особенности
+
+- Без рекламы
+- Без JavaScript
+- Специальные запросы
+- Быстрый поиск (например: !yt linux)
+- Удаляются фрагменты отслеживания с URL-адресов
+- Несколько цветовых тем
+- Поддерживает POST и GET запросы
+- Популярные сайты социальных сетей (YouTube, Instagram и т.д.) заменяются аналогами, дружественными к конфиденциальности.
+- Простой в использовании JSON API для разработчиков
+- Никакие сторонние библиотеки / фреймворки не используются
+- Простота размещения
+
+## Размещение сайта TrydeX
+
+Эти инструкции предназначены для Debian GNU/Linux, но они должны быть одинаковыми во всех дистрибутивах GNU/Linux и системах *BSD.
+
 <br>
 
-### Thanks rms
+Install the packages
 
-Huge thanks to Richard Stallman for using LibreX and featuring it on his [website](https://stallman.org/stallman-computing.html)!
+```bash
+sudo apt install php php-fpm php-dom php-curl nginx git
+```
 
-> However, the Librex proxies have worked around that problem. They enable me to access Google Search indirectly, and they work correctly through Tor with LibreJS enabled.
+Clone TrydeX
 
-<br>
+```bash
+git clone https://github.com/lencodigitexer/trydex.git
+```
 
-### About LibreX
+Rename the config and opensearch file
 
-LibreX gives you results from Google, Brave, Qwant, Ahmia and popular torrent sites without spying on you.
-<br>
-<br>
-If you would like to learn more about LibreX check out the [Wiki](https://github.com/hnhx/librex/wiki).
-<br>
-<br>
+```bash
+cd trydex
+mv config.php.example config.php
+mv opensearch.xml.example opensearch.xml
+```
 
+Change opensearch.xml to point to your domain
 
-### LibreX compared to other metasearch engines
+```bash
+sed -i 's/http:\/\/localhost/https:\/\/your.domain/g' opensearch.xml
+```
 
-| Name |  Works without JS | Privacy frontend redirect | Torrent results | API | No 3rd party libs used |
-|-|-|-|-|-|-|
-| LibreX | ✅ | ✅ | ✅ | ✅ | ✅ |
-| SearXNG | ❓ Not user friendly | ❓ Only host can set it | ✅ | ✅ | ❌ |
-| Whoogle | ✅ | ❓ Only host can set it | ❌ | ❌ | ❌ |
+Example nginx config
+
+```nginx
+server {
+        listen 80;
+
+        server_name your.domain;
+
+        root /var/www/html/librex;
+        index index.php;
+
+        location ~ \.php$ {
+               include snippets/fastcgi-php.conf;
+               fastcgi_pass unix:/run/php/php-fpm.sock;
+        }
+}
+```
+
+Start the php-fpm and the nginx systemd service
+
+```bash
+sudo systemctl enable --now php-fpm nginx
+```
+
+Теперь TrydeX должен быть запущен!
+
