@@ -9,6 +9,10 @@
         // Google results will be in this language
         "google_language" => "ru",
 
+        // Google API KEY
+        "google_api_key" => "AIzaSyD5pOomDzG3HQFld-lo13It_8phxj_Y4Xc",
+        "google_api_app" => "f1dd122f9a13648a6",
+
         "disable_bittorent_search" => false,
         "bittorent_trackers" => "&tr=http%3A%2F%2Fnyaa.tracker.wf%3A7777%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce",
 
@@ -51,7 +55,7 @@
             // CURLOPT_PROXYTYPE => CURLPROXY_HTTP,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
-            CURLOPT_USERAGENT => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+            CURLOPT_USERAGENT => "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
             CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_PROTOCOLS => CURLPROTO_HTTPS | CURLPROTO_HTTP,
