@@ -4,11 +4,11 @@
 
     if (!isset($_REQUEST["q"]))
     {
-        echo "<p>Пример API запроса: <a href=\"./api.php?q=google&p=2&t=0\">./api.php?q=google&p=2&t=0</a></p>
+        echo "<p>Пример API запроса: <a href=\"./api.php?q=GNU&p=2&t=0\">./api.php?q=GNU&p=2&t=0</a></p>
         <br/>
         <p>\"q\" это запрос в поиск</p>
         <p>\"p\" номер страницы результатов (первая страница 0)</p>
-        <p>\"t\" тип поиска (0=текстовый, 1=картинки, 2=видео)</p>
+        <p>\"t\" тип поиска (0=google, 10=yandex, 1=форумы, 2=видео)</p>
         <br/>
         <p>Результаты будут в формате JSON.</p>
         <p>API поддерживает как запросы POST, так и GET.</p>";
@@ -26,12 +26,16 @@
     switch ($type)
     {
         case 0:
-            require "engines/google/text.php";
+            require "engines/google_mobile/text.php";
+            $results = get_text_results($query, $page);
+            break;
+        case 10:
+            require "engines/yandex/text.php";
             $results = get_text_results($query, $page);
             break;
         case 1:
-            require "engines/qwant/image.php";
-            $results = get_image_results($query_encoded, $page);
+            require "engines/crowdview/forums.php";
+            $results = get_text_results($query_encoded, $page);
             break;
         case 2:
             require "engines/brave/video.php";
