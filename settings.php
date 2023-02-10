@@ -42,8 +42,8 @@ require "misc/header.php";
                 <label for="theme">Тема:</label>
                 <select name="theme">
                     <?php
-                    $themes = "<option value=\"dark\">Темная</option>
-                    <option value=\"yandex\">Yandex</option>
+                    $themes = "<option value=\"yandex\">Yandex</option>
+                    <option value=\"dark\">Темная</option>
                     <option value=\"darker\">Darker</option>
                     <option value=\"amoled\">AMOLED</option>
                     <option value=\"light\">Light</option>
@@ -70,8 +70,8 @@ require "misc/header.php";
                 <label for="theme">Поисковик:</label>
                 <select name="engines">
                     <?php
-                    $engines = "<option value=\"yandex\">Яндекс</option>
-                    <option value=\"google\">Google</option>";
+                    $engines = "<option value=\"google\">Google</option>
+                    <option value=\"yandex\">Яндекс</option>";
 
                     if (isset($_COOKIE["engines"])) {
                         $cookie_engine = $_COOKIE["engines"];

@@ -75,17 +75,18 @@
                     $last_word_query = end($query_parts);
                     if (substr($query, 0, 1) == "!" || substr($last_word_query, 0, 1) == "!")
                         check_ddg_bang($query);
-                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "yandex";
-                    if($cookie_engine == "yandex"){
-                        require "engines/yandex/text.php";
-                    } else {
+                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
+                    isset($_COOKIE["engines"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
+                    if($cookie_engine == "google"){
                         require "engines/google_mobile/text.php";
+                    } else {
+                        require "engines/yandex/text.php";
                     }
                     $results = get_text_results($query, $page);
                     print_elapsed_time($start_time);
                     print_text_results($results);
                     break;
-
+                
                 case 1:
                     require "engines/crowdview/forums.php";
                     $results = get_text_results($query_encoded, $page);
@@ -125,11 +126,12 @@
                     break;
 
                 default:
-                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "yandex";
-                    if($cookie_engine == "yandex"){
-                        require "engines/yandex/text.php";
-                    } else {
+                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
+                    isset($_COOKIE["engines"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
+                    if($cookie_engine == "google"){
                         require "engines/google_mobile/text.php";
+                    } else {
+                        require "engines/yandex/text.php";
                     }
                     $results = get_text_results($query_encoded, $page);
                     print_text_results($results);
