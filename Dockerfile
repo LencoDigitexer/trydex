@@ -6,13 +6,12 @@ RUN apk update && \
 		&& rm -rf /var/cache/apk/*
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/http.d/default.conf
 
 COPY . /srv/librex
-
-COPY nginx.conf /etc/nginx/http.d/default.conf
+RUN rm /srv/librex/nginx.conf
 
 RUN chown -R nginx: /srv/librex
 
 EXPOSE 80
-#USER nginx
 CMD php-fpm8 -D ; nginx
