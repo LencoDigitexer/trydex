@@ -43,6 +43,7 @@ require "misc/header.php";
                 <select name="theme">
                     <?php
                     $themes = "<option value=\"yandex\">Yandex</option>
+                    <option value=\"yandex_light\">Yandex Светлая</option>
                     <option value=\"dark\">Темная</option>
                     <option value=\"darker\">Darker</option>
                     <option value=\"amoled\">AMOLED</option>
