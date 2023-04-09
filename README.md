@@ -34,58 +34,28 @@
 
 ## Размещение сайта TrydeX
 
-Эти инструкции предназначены для Debian GNU/Linux, но они должны быть одинаковыми во всех дистрибутивах GNU/Linux и системах *BSD.
-
-<br>
-
-Install the packages
-
-```bash
-sudo apt install php php-fpm php-dom php-curl nginx git
-```
-
 Clone TrydeX
 
 ```bash
 git clone https://github.com/lencodigitexer/trydex.git
 ```
 
-Rename the config and opensearch file
-
-```bash
-cd trydex
-mv config.php.example config.php
-mv opensearch.xml.example opensearch.xml
-```
-
 Change opensearch.xml to point to your domain
 
 ```bash
+cd trydex
 sed -i 's/http:\/\/localhost/https:\/\/your.domain/g' opensearch.xml
 ```
-
-Example nginx config
-
-```nginx
-server {
-        listen 80;
-
-        server_name your.domain;
-
-        root /var/www/html/librex;
-        index index.php;
-
-        location ~ \.php$ {
-               include snippets/fastcgi-php.conf;
-               fastcgi_pass unix:/run/php/php-fpm.sock;
-        }
-}
-```
-
-Start the php-fpm and the nginx systemd service
+Building a docker image
 
 ```bash
-sudo systemctl enable --now php-fpm nginx
+docker build -t trydex .
+```
+
+Running the docker image
+
+```bash
+docker run --rm -p 80:80 --name trydex trydex
 ```
 
 Теперь TrydeX должен быть запущен!
