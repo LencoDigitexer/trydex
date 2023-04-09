@@ -1,10 +1,10 @@
 <?php
     function tor_result($response)
     {
-            $formatted_response = "It seems like you are not using Tor";
+            $formatted_response = "Похоже, вы не используете Tor";
             if (strpos($response, $_SERVER["REMOTE_ADDR"]) !== false)
             {
-                $formatted_response = "It seems like you are using Tor";
+                $formatted_response = "Похоже, вы используете Tor";
             }
 
             $source = "https://check.torproject.org";

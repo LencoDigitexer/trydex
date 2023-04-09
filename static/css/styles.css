@@ -47,7 +47,7 @@ a:hover,
 
 .search-container {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 15%;
 }
 
 .search-container h1 {
@@ -63,7 +63,7 @@ a:hover,
     font-size: inherit;
     font-family: sans-serif;
     border: 2px solid var(--search-container-background-border);
-    border-radius: 25px;
+    border-radius: 10px 5px 5px 10px;
 }
 
 .search-button-wrapper button,
@@ -73,13 +73,15 @@ a:hover,
     background-color: var(--button-bg);
     font-size: 14px;
     border: 1px solid var(--main-bg);
-    border-radius: 4px;
+    border-radius: 5px 10px 10px 5px;
     padding: 13px 10px 13px 10px;
 }
 
 .search-button-wrapper button {
-
-    margin: 30px 60px 0px 60px;
+    
+    margin: 30px 60px 0px -2px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .sub-search-container {
@@ -205,6 +207,7 @@ a:hover,
     margin-left: 840px;
     margin-top: 0px;
     position: absolute;
+    box-shadow: 0 4px 12px 0#0d234308;
 }
 
 .text-result-wrapper {
@@ -215,7 +218,8 @@ a:hover,
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 15px;
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 4px 12px 0#0d234308;
 }
 
 .favicon-wrapper {
@@ -475,7 +479,7 @@ a[title] {
     }
 
     .search-container {
-        margin-top: 10%;
+        margin-top: 80%;
     }
 
     .text-result-container,
