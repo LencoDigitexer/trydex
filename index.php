@@ -13,5 +13,5 @@
                     <button name="t" value="0" type="submit">Поиск в TrydeX</button>
                 </div>
         </form>
-
-<?php require "misc/footer.php"; ?>
+    </body>
+</html>
