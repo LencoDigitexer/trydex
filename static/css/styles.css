@@ -307,7 +307,6 @@ a[title] {
 
 .git-container,
 .footer-container {
-    position: fixed;
     bottom: 0;
 }
 
