@@ -64,14 +64,14 @@ function get_text_results($query, $page)
                     continue;
         }
 
-        $url = mb_convert_encoding($url->textContent, "windows-1252", "UTF-8");
+        $url = mb_convert_encoding($url->textContent, "ISO-8859-1", "UTF-8");
 
         $url = check_for_privacy_frontend($url);
 
         $title = $xpath->evaluate(".//h3", $result)[0];
-        $title = mb_convert_encoding($title->textContent, "windows-1252", "UTF-8");
+        $title = mb_convert_encoding($title->textContent, "ISO-8859-1", "UTF-8");
         $description = $xpath->evaluate(".//div[contains(@class, 'VwiC3b')]", $result)[0];
-        $description = mb_convert_encoding($description->textContent, "windows-1252", "UTF-8");
+        $description = mb_convert_encoding($description->textContent, "ISO-8859-1", "UTF-8");
 
         array_push(
             $results,
