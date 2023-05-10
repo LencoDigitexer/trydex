@@ -212,9 +212,9 @@
             isset($_COOKIE["google_language"]) ? $engine = $_COOKIE["engines"] : $engine = "yandex";
             isset($_COOKIE["engines"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
             if($cookie_engine=="google"){
-                echo "<p id=\"time\">Получил результаты за $end_time секунды от Google</p> ";
+                echo "<p id=\"time\">Получил результаты за $end_time секунды</p> ";
             } else {
-                echo "<p id=\"time\">Получил результаты за $end_time секунды от Yandex</p> ";
+                echo "<p id=\"time\">Получил результаты за $end_time секунды</p> ";
             }
         }
 

@@ -71,20 +71,10 @@
             switch ($type)
             {
                 case 0:
-                    $query_parts = explode(" ", $query);
-                    $last_word_query = end($query_parts);
-                    if (substr($query, 0, 1) == "!" || substr($last_word_query, 0, 1) == "!")
-                        check_ddg_bang($query);
-                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
-                    isset($_COOKIE["engines"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
-                    if($cookie_engine == "google"){
-                        require "engines/google_mobile/text.php";
-                    } else {
-                        require "engines/yandex/text.php";
-                    }
-                    $results = get_text_results($query, $page);
+                    require "engines/text/merge.php";
+                    $results = get_merged_torrent_results($query_encoded, $page);
                     print_elapsed_time($start_time);
-                    print_text_results($results);
+                    print_merged_torrent_results($results);
                     break;
                 
                 case 1:
@@ -123,6 +113,37 @@
                         print_elapsed_time($start_time);
                         print_hidden_service_results($results);
                     }
+                    break;
+
+                case 5:
+                    
+                        
+
+                    $query_parts = explode(" ", $query);
+                    $last_word_query = end($query_parts);
+                    if (substr($query, 0, 1) == "!" || substr($last_word_query, 0, 1) == "!")
+                        check_ddg_bang($query);
+                    isset($_COOKIE["google_language"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
+                    isset($_COOKIE["engines"]) ? $cookie_engine = $_COOKIE["engines"] : $cookie_engine = "google";
+                    if($cookie_engine == "google"){
+                        require "engines/google_mobile/text.php";
+                    } else {
+                        require "engines/yandex/text.php";
+                    }
+                    $results = get_text_results($query, $page);
+                    print_elapsed_time($start_time);
+                    print_text_results($results);
+                    break;
+                    
+                    break;
+                
+                case 6:
+                    
+                        require "engines/text/test.php";
+                        $results = get_merged_torrent_results($query_encoded, $page);
+                        print_elapsed_time($start_time);
+                        print_merged_torrent_results($results);
+                    
                     break;
 
                 default:
