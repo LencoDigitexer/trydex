@@ -14,7 +14,6 @@
             $google_url
         );
 
- 
         $mh = curl_multi_init();
         $chs = $results = array();
 
@@ -31,45 +30,53 @@
             curl_multi_exec($mh, $running);
         } while ($running);
 
-        
         for ($i=0; count($chs)>$i; $i++)
         {
             $response = curl_multi_getcontent($chs[$i]);
 
-
             switch ($i)
             {
                 case 0:
-                    $results = array_merge($results, get_yandex_results($response, $page));
-                  
+                    $temp_results = get_yandex_results($response, $page);
+
                     break;
                 case 1:
-                    $results = array_merge($results, get_google_results($response, $page));
+                    $temp_results = get_google_results($response, $page);
                     break;
+            }
+
+            foreach ($temp_results as $result) {
+                $domain = $result["url"];
+
+                if (!isset($unique_results[$domain])) {
+                    $unique_results[$domain] = $result;
+                } else {
+                    $unique_results[$domain]["source"] .= ", " . $result["source"];
+                }
             }
         }
         
-        //$seeders = array_column($results, "seeders");
-        //array_multisort($seeders, SORT_DESC, $results);
-
-        return $results; 
+        return $unique_results; 
     }
 
-    function print_merged_torrent_results($results)
+    function print_merged_torrent_results($unique_results)
     {
         echo "<div class=\"text-result-container\">";
 
-
-
-
-
-
-        if (!empty($results)) 
+        if (!empty($unique_results)) 
         {
-            foreach($results as $result)
+            usort($unique_results, function($a, $b) {
+                $a_engines = count(explode(",", $a["source"]));
+                $b_engines = count(explode(",", $b["source"]));
+            
+                if ($a_engines == $b_engines) {
+                    return 0;
+                }
+            
+                return ($a_engines > $b_engines) ? -1 : 1;
+            });
+            foreach($unique_results as $result) 
             {
-
-
                 $title = $result["title"];
                 $url = $result["url"];
                 $base_url = $result["base_url"];
@@ -79,7 +86,6 @@
 
 
                 echo "<div class=\"text-result-wrapper\">";
-                //echo "<span>$source</span><br>";
                 echo "<img class=\"favicon-wrapper\" src=\"image_proxy.php?url=https://favicon.yandex.net/favicon/$domain\">";
                 echo "<a href=\"$url\">";
                 echo urldecode($url);
@@ -95,13 +101,10 @@
                     </svg>веб-архив</a>&lrm; 
             </div>';
                 echo "</div>";
-
-
-                
             }
         }
         else
-            echo "<p>There are no results. Please try different keywords!</p>";
+            echo "<p>Ничего не найдено, попробуйте изменить поисковой запрос</p>";
 
         echo "</div>";
     }
