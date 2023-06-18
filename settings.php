@@ -71,7 +71,8 @@ require "misc/header.php";
                 <label for="theme">Поисковик:</label>
                 <select name="engines">
                     <?php
-                    $engines = "<option value=\"google\">Google</option>
+                    $engines = "<option value=\"yago\">Yandex + Google</option>
+                    <option value=\"google\">Google</option>
                     <option value=\"yandex\">Яндекс</option>";
 
                     if (isset($_COOKIE["engines"])) {

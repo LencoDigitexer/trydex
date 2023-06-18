@@ -151,6 +151,7 @@ function get_text_results($query, $page)
 
 function print_text_results($results)
 {
+    //print_r($results[0]);
     $special = $results[0];
     if (array_key_exists("special_response", $special)) {
         $response = $special["special_response"]["response"];
